@@ -1,4 +1,5 @@
 #import "FISoundDevice.h"
+#import <OpenAL/alc.h>
 
 @implementation FISoundDevice
 
@@ -8,7 +9,12 @@
 {
     self = [super init];
     _handle = alcOpenDevice([deviceName cStringUsingEncoding:NSUTF8StringEncoding]);
-    return (_handle ? self : nil);
+    if( !_handle)
+    {
+      [self autorelease];
+      return( nil);
+   }
+    return(self);
 }
 
 - (void) dealloc
@@ -17,13 +23,14 @@
         alcCloseDevice(_handle);
         _handle = 0;
     }
+    [super dealloc];
 }
 
 #pragma mark Convenience Initializers
 
 + (id) deviceNamed: (NSString*) deviceName
 {
-    return [[self alloc] initWithName:deviceName];
+    return [[[self alloc] initWithName:deviceName] autorelease];
 }
 
 // TODO: We should cache the device instances using the device name,

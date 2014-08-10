@@ -1,6 +1,7 @@
 #import "FISoundContext.h"
 #import "FISoundDevice.h"
 #import "FIError.h"
+#import <OpenAL/al.h>
 
 @implementation FISoundContext
 
@@ -10,7 +11,9 @@
 {
     self = [super init];
 
-    if (!device) {
+    if (!device)
+    {
+        [self autorelease];
         return nil;
     }
 
@@ -29,7 +32,7 @@
 
 + (id) contextForDevice: (FISoundDevice*) device error: (NSError**) error
 {
-    return [(FISoundContext*) [self alloc] initWithDevice:device error:error];
+    return [[(FISoundContext*) [self alloc] initWithDevice:device error:error] autorelease];
 }
 
 - (void) dealloc
@@ -41,6 +44,7 @@
         alcDestroyContext(_handle);
         _handle = 0;
     }
+    [super dealloc];
 }
 
 #pragma mark Switching

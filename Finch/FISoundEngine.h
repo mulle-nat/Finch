@@ -5,6 +5,7 @@
 
 @interface FISoundEngine : NSObject
 
+@property(retain) NSMutableDictionary *soundMap;
 @property(strong) NSBundle *soundBundle;
 @property(assign, nonatomic, getter = isSuspended) BOOL suspended;
 

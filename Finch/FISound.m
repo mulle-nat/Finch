@@ -4,32 +4,46 @@
 #import "FISoundSource.h"
 
 @interface FISound ()
-@property(strong) NSArray *voices;
+@property(retain) NSMutableArray *voices;
 @property(assign) NSUInteger currentVoiceIndex;
 @end
 
 @implementation FISound
 @dynamic isPlaying, loop, gain, pitch, duration;
 
+
+- (void) dealloc
+{
+   [_voices release];
+
+   [super dealloc];
+}
+
+
 #pragma mark Initialization
+
 
 - (id) initWithPath: (NSString*) path maxPolyphony: (NSUInteger) maxPolyphony error: (NSError**) error
 {
     self = [super init];
-    _voices = @[];
+    _voices = [NSMutableArray new];
 
     FISampleBuffer *buffer = [FISampleDecoder decodeSampleAtPath:path error:error];
-    if (!buffer || !maxPolyphony) {
+    if (!buffer || !maxPolyphony)
+    {
+        [super autorelease];
         return nil;
     }
     
-    for (int i=0; i<maxPolyphony; i++) {
-        FISoundSource *voice = [[FISoundSource alloc] initWithSampleBuffer:buffer error:error];
-        if (voice) {
-            _voices = [_voices arrayByAddingObject:voice];
-        } else {
+    for (int i=0; i<maxPolyphony; i++)
+    {
+        FISoundSource *voice = [[[FISoundSource alloc] initWithSampleBuffer:buffer error:error] autorelease];
+        if( ! voice)
+        {
+            [super autorelease];
             return nil;
         }
+        [_voices addObject:voice];
     }
 
     return self;

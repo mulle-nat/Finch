@@ -1,6 +1,11 @@
 #import "FISampleDecoder.h"
+
 #import "FISampleBuffer.h"
 #import "FIError.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <OpenAL/al.h>
+#import <OpenAL/alc.h>
+
 
 @implementation FISampleDecoder
 
@@ -22,10 +27,10 @@
 
     // Create sample buffer
     NSError *bufferError = nil;
-    FISampleBuffer *buffer = [[FISampleBuffer alloc]
+    FISampleBuffer *buffer = [[[FISampleBuffer alloc]
         initWithData:sampleData sampleRate:format.mSampleRate
         sampleFormat:FISampleFormatMake(format.mChannelsPerFrame, format.mBitsPerChannel)
-        error:&bufferError];
+        error:&bufferError] autorelease];
 
     if (!buffer) {
         *error = [NSError errorWithDomain:FIErrorDomain

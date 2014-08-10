@@ -1,13 +1,25 @@
 #import "Application.h"
+
 #import "Controller.h"
 #import "FISoundEngine.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 @interface Application ()
-@property(strong) FISoundEngine *soundEngine;
+@property(assign) FISoundEngine *soundEngine;
 @end
 
 @implementation Application
-@synthesize window;
+
+@synthesize window = _window;
+
+- (void) dealloc
+{
+   [_window release];
+   [_controller release];
+   [super dealloc];
+}
+
 
 #pragma mark Initialization
 
@@ -21,8 +33,8 @@
         name:AVAudioSessionInterruptionNotification
         object:[AVAudioSession sharedInstance]];
 
-    [window setRootViewController:_controller];
-    [window makeKeyAndVisible];
+    [_window setRootViewController:_controller];
+    [_window makeKeyAndVisible];
 }
 
 #pragma mark Interruption Handling

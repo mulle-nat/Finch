@@ -1,5 +1,6 @@
 #import "FISampleBuffer.h"
 #import "FIError.h"
+#import <OpenAL/alc.h>
 
 @implementation FISampleBuffer
 
@@ -54,6 +55,7 @@
         alDeleteBuffers(1, &_handle);
         _handle = 0;
     }
+    [super dealloc];
 }
 
 #pragma mark Calculations

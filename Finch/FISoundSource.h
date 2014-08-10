@@ -1,8 +1,10 @@
+#import <Foundation/Foundation.h>
+
 @class FISampleBuffer;
 
 @interface FISoundSource : NSObject
 
-@property(strong, readonly) FISampleBuffer *sampleBuffer;
+@property(retain, readonly) FISampleBuffer *sampleBuffer;
 @property(assign, readonly) BOOL isPlaying;
 
 @property(assign, nonatomic) BOOL loop;

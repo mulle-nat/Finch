@@ -5,7 +5,6 @@
 #import "FISound.h"
 
 @interface FISoundEngine ()
-@property(strong) FISoundDevice *soundDevice;
 @property(strong) FISoundContext *soundContext;
 @end
 
@@ -15,10 +14,13 @@
 
 - (id) init
 {
+   FISoundDevice   *soundDevice;
+   
     self = [super init];
 
-    _soundDevice = [FISoundDevice defaultSoundDevice];
-    _soundContext = [FISoundContext contextForDevice:_soundDevice error:NULL];
+    _soundMap     = [NSMutableDictionary new];
+    soundDevice  = [[FISoundDevice defaultSoundDevice] retain];
+    _soundContext = [[FISoundContext contextForDevice:soundDevice error:NULL] retain];
     if (!_soundContext) {
         return nil;
     }
@@ -32,6 +34,11 @@
 - (void) dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+   
+    [_soundMap release];
+    [_soundContext release];
+   
+    [super dealloc];
 }
 
 + (id) sharedEngine
@@ -39,23 +46,59 @@
     static dispatch_once_t once;
     static FISoundEngine *sharedEngine = nil;
     dispatch_once(&once, ^{
-        sharedEngine = [[self alloc] init];
+        sharedEngine = [self new];
     });
     return sharedEngine;
 }
 
 #pragma mark Sound Loading
 
-- (FISound*) soundNamed: (NSString*) soundName maxPolyphony: (NSUInteger) voices error: (NSError**) error
+- (FISound*) soundNamed: (NSString*) soundName
+           maxPolyphony: (NSUInteger) voices
+                  error: (NSError**) error
 {
-    return [[FISound alloc]
-        initWithPath:[_soundBundle pathForResource:soundName ofType:nil]
-        maxPolyphony:voices error:error];
+   FISound   *sound;
+   NSString  *path;
+   
+   NSParameterAssert( _soundBundle);
+   
+   @synchronized( self)
+   {
+      sound = [_soundMap objectForKey:soundName];
+      if( ! sound)
+      {
+         path  = [_soundBundle pathForResource:soundName
+                                        ofType:nil
+                                   inDirectory:@"Sounds"];
+         if( path)
+         {
+            sound = [[[FISound alloc] initWithPath:path
+                                      maxPolyphony:voices
+                                             error:error] autorelease];
+            if( sound)
+               [_soundMap setObject:sound
+                             forKey:soundName];
+            else
+               *error = [NSError errorWithDomain:@"FISoundEngine: bad content"
+                                            code:204
+                                        userInfo:nil];
+            
+         }
+         else
+            *error = [NSError errorWithDomain:@"FISoundEngine: file not found"
+                                         code:404
+                                     userInfo:nil];
+      }
+   }
+   return( sound);
 }
+
 
 - (FISound*) soundNamed: (NSString*) soundName error: (NSError**) error
 {
-    return [self soundNamed:soundName maxPolyphony:1 error:error];
+    return [self soundNamed:soundName
+    maxPolyphony:1
+    error:error];
 }
 
 #pragma mark Interruption Handling

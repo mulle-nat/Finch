@@ -73,9 +73,9 @@
 		0DC3BFE81698189E00B7C4F2 /* FISoundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC3BFE71698189D00B7C4F2 /* FISoundTests.m */; };
 		0DC3BFEA16981DD700B7C4F2 /* duration.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DC3BFE916981DD700B7C4F2 /* duration.wav */; };
 		0DC3BFED1698214900B7C4F2 /* FISoundSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC3BFEC1698214800B7C4F2 /* FISoundSourceTests.m */; };
-		0DCA26E116998170000B20EB /* finch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DCA26E016998170000B20EB /* finch.wav */; };
 		0DF32BA4141A37250059033C /* FIError.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF32BA3141A37250059033C /* FIError.h */; };
 		0DFC9E56147FBC9800FC2066 /* FIError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC9E55147FBC9800FC2066 /* FIError.m */; };
+		419F138F199828DB0046E0C8 /* finch.wav in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0DCA26E016998170000B20EB /* finch.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +94,19 @@
 			remoteInfo = "Test Runner";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		419F138E199828BB0046E0C8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Sounds;
+			dstSubfolderSpec = 7;
+			files = (
+				419F138F199828DB0046E0C8 /* finch.wav in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0D1BA656141A45B6004A5A9F /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,6 +420,7 @@
 				0D2AA96D141750F700F4071B /* Sources */,
 				0D2AA96E141750F700F4071B /* Frameworks */,
 				0D2AA96F141750F700F4071B /* Resources */,
+				419F138E199828BB0046E0C8 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -487,7 +501,6 @@
 				0D2AA9A21417515A00F4071B /* Bootstrap.xib in Resources */,
 				0D9CA7041695DEE2007B522D /* Default-568h@2x.png in Resources */,
 				0D9CA7051695DEE2007B522D /* Default@2x.png in Resources */,
-				0DCA26E116998170000B20EB /* finch.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,13 +608,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestRunner.app/TestRunner";
-				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Finch/Tests-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = NO;
@@ -614,13 +625,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TestRunner.app/TestRunner";
-				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Finch/Tests-Prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = NO;
@@ -672,10 +681,7 @@
 		0D2AA94C14174FA000F4071B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/Finch.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Finch/Lib-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
@@ -688,10 +694,7 @@
 		0D2AA94D14174FA000F4071B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/Finch.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Finch/Lib-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
@@ -704,10 +707,7 @@
 		0D2AA98B141750F800F4071B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -719,10 +719,7 @@
 		0D2AA98C141750F800F4071B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;

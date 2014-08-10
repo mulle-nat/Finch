@@ -1,10 +1,15 @@
 #import "FISoundSource.h"
+
 #import "FISampleBuffer.h"
 #import "FIError.h"
+#import <AudioToolbox/AudioToolbox.h>
+#import <OpenAL/al.h>
+#import <OpenAL/alc.h>
+
 
 @interface FISoundSource ()
 @property(assign) ALuint handle;
-@property(strong) FISampleBuffer *sampleBuffer;
+@property(retain) FISampleBuffer *sampleBuffer;
 @end
 
 @implementation FISoundSource
@@ -31,7 +36,7 @@
         return nil;
     }
 
-    _sampleBuffer = buffer;
+    _sampleBuffer = [buffer retain];
     _pitch = 1;
     _gain = 1;
 
@@ -48,6 +53,8 @@
         alDeleteSources(1, &_handle);
         _handle = 0;
     }
+    [_sampleBuffer release];
+    [super dealloc];
 }
 
 #pragma mark Playback
