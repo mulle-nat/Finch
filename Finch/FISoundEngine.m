@@ -1,6 +1,8 @@
 #import "FISoundEngine.h"
+
 #import "FISoundContext.h"
 #import "FISoundDevice.h"
+#import "FISound.h"
 
 @interface FISoundEngine ()
 @property(strong) FISoundDevice *soundDevice;

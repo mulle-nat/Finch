@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0D1BA64D141A41EB004A5A9F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA9AB141752D800F4071B /* OpenAL.framework */; };
-		0D1BA64E141A41EB004A5A9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA9A9141752BE00F4071B /* AudioToolbox.framework */; };
-		0D1BA64F141A41EB004A5A9F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA9A7141752A200F4071B /* AVFoundation.framework */; };
 		0D1BA658141A45B6004A5A9F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1BA657141A45B6004A5A9F /* SenTestingKit.framework */; };
 		0D1BA659141A45B6004A5A9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA973141750F700F4071B /* UIKit.framework */; };
 		0D1BA65A141A45B6004A5A9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA94114174FA000F4071B /* Foundation.framework */; };
 		0D1BA675141A46FE004A5A9F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA9AB141752D800F4071B /* OpenAL.framework */; };
 		0D1BA676141A4700004A5A9F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA9A9141752BE00F4071B /* AudioToolbox.framework */; };
 		0D1BA677141A4702004A5A9F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA9A7141752A200F4071B /* AVFoundation.framework */; };
-		0D2AA94214174FA000F4071B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA94114174FA000F4071B /* Foundation.framework */; };
 		0D2AA974141750F700F4071B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA973141750F700F4071B /* UIKit.framework */; };
 		0D2AA975141750F800F4071B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D2AA94114174FA000F4071B /* Foundation.framework */; };
 		0D2AA99A1417515A00F4071B /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2AA98E1417515A00F4071B /* Application.m */; };
@@ -41,9 +37,9 @@
 		0D9CA6F116958028007B522D /* FISampleFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CA6EF16958028007B522D /* FISampleFormat.m */; };
 		0D9CA6F81695896E007B522D /* FISoundSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9CA6F61695896E007B522D /* FISoundSource.h */; };
 		0D9CA6F91695896E007B522D /* FISoundSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CA6F71695896E007B522D /* FISoundSource.m */; };
-		0D9CA6FC16958D46007B522D /* FISound.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9CA6FA16958D46007B522D /* FISound.h */; };
+		0D9CA6FC16958D46007B522D /* FISound.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9CA6FA16958D46007B522D /* FISound.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D9CA6FD16958D46007B522D /* FISound.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CA6FB16958D46007B522D /* FISound.m */; };
-		0D9CA7001695CE59007B522D /* FISoundEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9CA6FE1695CE59007B522D /* FISoundEngine.h */; };
+		0D9CA7001695CE59007B522D /* FISoundEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D9CA6FE1695CE59007B522D /* FISoundEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D9CA7011695CE59007B522D /* FISoundEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CA6FF1695CE59007B522D /* FISoundEngine.m */; };
 		0D9CA7041695DEE2007B522D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CA7021695DEE2007B522D /* Default-568h@2x.png */; };
 		0D9CA7051695DEE2007B522D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D9CA7031695DEE2007B522D /* Default@2x.png */; };
@@ -80,7 +76,6 @@
 		0DCA26E116998170000B20EB /* finch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0DCA26E016998170000B20EB /* finch.wav */; };
 		0DF32BA4141A37250059033C /* FIError.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DF32BA3141A37250059033C /* FIError.h */; };
 		0DFC9E56147FBC9800FC2066 /* FIError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFC9E55147FBC9800FC2066 /* FIError.m */; };
-		0DFC9E68147FDD6100FC2066 /* Lib-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 0DFC9E67147FDD6000FC2066 /* Lib-Prefix.pch */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,10 +182,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D2AA94214174FA000F4071B /* Foundation.framework in Frameworks */,
-				0D1BA64D141A41EB004A5A9F /* OpenAL.framework in Frameworks */,
-				0D1BA64E141A41EB004A5A9F /* AudioToolbox.framework in Frameworks */,
-				0D1BA64F141A41EB004A5A9F /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,16 +349,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D9CA6FC16958D46007B522D /* FISound.h in Headers */,
+				0D9CA7001695CE59007B522D /* FISoundEngine.h in Headers */,
 				0DF32BA4141A37250059033C /* FIError.h in Headers */,
-				0DFC9E68147FDD6100FC2066 /* Lib-Prefix.pch in Headers */,
 				0DAF0E891694223100612EED /* FISampleBuffer.h in Headers */,
-				0DAF0E9616943E0800612EED /* FISoundContext.h in Headers */,
 				0DAF0E9A16943F5200612EED /* FISoundDevice.h in Headers */,
+				0DAF0E9616943E0800612EED /* FISoundContext.h in Headers */,
 				0D9CA6E81695735A007B522D /* FISampleDecoder.h in Headers */,
 				0D9CA6F016958028007B522D /* FISampleFormat.h in Headers */,
 				0D9CA6F81695896E007B522D /* FISoundSource.h in Headers */,
-				0D9CA6FC16958D46007B522D /* FISound.h in Headers */,
-				0D9CA7001695CE59007B522D /* FISoundEngine.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +680,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/${PROJECT_NAME}";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -705,6 +696,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/${PROJECT_NAME}";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;

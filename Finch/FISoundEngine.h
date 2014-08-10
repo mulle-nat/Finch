@@ -1,4 +1,7 @@
-#import "FISound.h"
+#import <Foundation/Foundation.h>
+
+@class FISound;
+
 
 @interface FISoundEngine : NSObject
 
