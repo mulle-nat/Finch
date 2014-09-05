@@ -21,7 +21,9 @@
     _soundMap     = [NSMutableDictionary new];
     soundDevice  = [[FISoundDevice defaultSoundDevice] retain];
     _soundContext = [[FISoundContext contextForDevice:soundDevice error:NULL] retain];
-    if (!_soundContext) {
+    if (!_soundContext)
+    {
+        [self autorelease];
         return nil;
     }
 
@@ -59,8 +61,12 @@
 {
    FISound   *sound;
    NSString  *path;
+   NSError   *fake;
    
    NSParameterAssert( _soundBundle);
+
+   if( ! error)
+      error = &fake;
    
    @synchronized( self)
    {
@@ -96,9 +102,9 @@
 
 - (FISound*) soundNamed: (NSString*) soundName error: (NSError**) error
 {
-    return [self soundNamed:soundName
-    maxPolyphony:1
-    error:error];
+   return [self soundNamed:soundName
+              maxPolyphony:1
+                     error:error];
 }
 
 #pragma mark Interruption Handling

@@ -24,6 +24,7 @@
     if (!_handle) {
         *error = [FIError errorWithMessage:@"Can’t create OpenAL context"
             code:FIErrorCannotCreateContext OpenALCode:alGetError()];
+        [self autorelease];
         return nil;
     }
 
