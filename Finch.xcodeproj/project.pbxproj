@@ -394,7 +394,7 @@
 			name = Tests;
 			productName = Tests;
 			productReference = 0D1BA656141A45B6004A5A9F /* Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 		0D2AA93D14174FA000F4071B /* Finch */ = {
 			isa = PBXNativeTarget;
@@ -686,7 +686,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "include/${PROJECT_NAME}";
+				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/${PROJECT_NAME}";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -699,7 +699,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PUBLIC_HEADERS_FOLDER_PATH = "include/${PROJECT_NAME}";
+				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/${PROJECT_NAME}";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
