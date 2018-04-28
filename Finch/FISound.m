@@ -73,7 +73,7 @@
 
 - (NSTimeInterval) duration
 {
-    return [[[_voices lastObject] sampleBuffer] duration];
+    return [[(FISoundSource*)[_voices lastObject] sampleBuffer] duration];
 }
 
 - (void) forwardInvocation: (NSInvocation*) invocation
